@@ -17,6 +17,7 @@ int main(){
 
 	Grafo *grafo = new Grafo(vertices);
 
+	//Test
 	int ab, ae;
 	for (i=0; i<arestas; i++){
 		std::cin >> ab;
