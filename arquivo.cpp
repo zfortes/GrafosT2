@@ -11,9 +11,6 @@ using namespace std;
 
 
 Grafo *Arquivo::lerGrafo(){
-
-
-    string line;
     ifstream file ("top_datasets/top_med.txt");
 
     int i, j, ab, ae;
@@ -21,6 +18,7 @@ Grafo *Arquivo::lerGrafo(){
     Grafo *grafo=NULL;
 
     if (file.is_open()){
+        string line;
         getline (file,line);
         grafo = new Grafo(stoi(line)); //envia o numero de vertices q o grafo tem
         std::cout << stoi(line)  << '\n';
