@@ -19,6 +19,7 @@ void Vertice::add_adjacente(int ad){
 
 Grafo::Grafo(int nVertices){
     vert = new Vertice[nVertices];
+    vertices = nVertices;
 }
 
 // void Grafo::setVertice(int nVertices){

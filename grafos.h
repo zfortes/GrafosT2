@@ -26,6 +26,10 @@ public:
 
     Vertice *vert;
     Grafo(int);
+    
+    int getVertices(){
+        return vertices;
+    }
     // void setVertice(int);
 //	bool verifica_adjacente(int v1, int v2); //Verifica se v2 encontra-se na lista de adjacencia de v1
 };
