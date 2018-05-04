@@ -5,12 +5,14 @@
 #include <list>
 #include <algorithm>
 #include "grafos.h"
+#include "ordenacaodois.h"
 
 using namespace std;
 
 
 void Grafo::add_adjacente(int v,int ad){
     adjacencia[v].push_back(ad);
+    grau[v]++;
 }
 //Vertice::Vertice(int id, int vertices){
 //    this->id = id;
