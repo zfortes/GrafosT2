@@ -8,6 +8,8 @@
 #include <iostream>
 #include <list>
 #include <algorithm>
+#include "grafos.h"
+
 
 using namespace std;
 
@@ -24,12 +26,13 @@ class Grafo{
     int vertices; //numero de vertices do grafo
 public:
 
-    Vertice *vert;
+    list<int> *adjacencia;
     Grafo(int);
-    
+
     int getVertices(){
         return vertices;
     }
+    void add_adjacente(int, int);
     // void setVertice(int);
 //	bool verifica_adjacente(int v1, int v2); //Verifica se v2 encontra-se na lista de adjacencia de v1
 };

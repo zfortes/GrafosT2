@@ -16,7 +16,7 @@ int main(){
 	for (i=0; i<grafo->getVertices(); i++){
 		// grafo->vert[i].add_adjacente(ae);
 		std::cout << "Grafo: " << i <<'\n';
-		for (int n : grafo->vert[i].adjacentes){
+		for (int n : grafo->adjacencia[i]){
 			std::cout << " " << n << ","<<'\n';
 		}
 	}

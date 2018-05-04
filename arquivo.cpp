@@ -11,7 +11,7 @@ using namespace std;
 
 
 Grafo *Arquivo::lerGrafo(){
-    ifstream file ("top_datasets/top_med.txt");
+    ifstream file ("top_datasets/top_small.txt");
 
     int i, j, ab, ae;
     string aux, sae;
@@ -40,7 +40,7 @@ Grafo *Arquivo::lerGrafo(){
                 j++;
             }
             ae = stoi(aux);
-            grafo->vert[ab].add_adjacente(ae);
+            grafo->add_adjacente(ab, ae);
 
 
              // cout << line << endl;

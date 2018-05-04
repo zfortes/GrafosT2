@@ -3,11 +3,11 @@
 #include<iostream>
 #include <list>
 #include <stack>
+#include "grafos.h"
 using namespace std;
 
 // Class to represent a graph
-class OrdenacaoUm
-{
+class OrdenacaoUm:public Grafo{
     int V;    // No. of vertices'
 
     // Pointer to an array containing adjacency listsList
@@ -16,7 +16,7 @@ class OrdenacaoUm
     // A function used by topologicalSort
     void topologicalSortUtil(int v, bool visited[], stack<int> &Stack);
 public:
-    Graph(int V);   // Constructor
+    // OrdenacaoUm(int v);   // Constructor
 
      // function to add an edge to graph
     void addEdge(int v, int w);
@@ -24,3 +24,5 @@ public:
     // prints a Topological Sort of the complete graph
     void topologicalSort();
 };
+
+#endif
