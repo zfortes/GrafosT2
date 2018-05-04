@@ -13,13 +13,13 @@ int main(){
 	Arquivo *arquivo = new Arquivo();
 	Grafo *grafo = arquivo->lerGrafo();
 
-	for (i=0; i<grafo->getVertices(); i++){
-		// grafo->vert[i].add_adjacente(ae);
-		std::cout << "Grafo: " << i <<'\n';
-		for (int n : grafo->adjacencia[i]){
-			std::cout << " " << n << ","<<'\n';
-		}
-	}
+	// for (i=0; i<grafo->getVertices(); i++){
+	// 	// grafo->vert[i].add_adjacente(ae);
+	// 	std::cout << "Grafo: " << i <<'\n';
+	// 	for (int n : grafo->adjacencia[i]){
+	// 		std::cout << " " << n << ","<<'\n';
+	// 	}
+	// }
 
 
 	return 0;
