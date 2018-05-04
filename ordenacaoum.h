@@ -11,7 +11,7 @@ class OrdenacaoUm:public Grafo{
     int V;    // No. of vertices'
 
     // Pointer to an array containing adjacency listsList
-    list<int> *adj;
+    // list<int> *adj;
 
     // A function used by topologicalSort
     void topologicalSortUtil(int v, bool visited[], stack<int> &Stack);

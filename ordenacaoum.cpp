@@ -12,7 +12,7 @@ using namespace std;
 
 void OrdenacaoUm::addEdge(int v, int w)
 {
-    adj[v].push_back(w); // Add w to v’s list.
+    adjacencia[v].push_back(w); // Add w to v’s list.
 }
 
 // A recursive function used by topologicalSort
@@ -24,7 +24,7 @@ void OrdenacaoUm::topologicalSortUtil(int v, bool visited[],
 
     // Recur for all the vertices adjacent to this vertex
     list<int>::iterator i;
-    for (i = adj[v].begin(); i != adj[v].end(); ++i)
+    for (i = adjacencia[v].begin(); i != adjacencia[v].end(); ++i)
         if (!visited[*i])
             topologicalSortUtil(*i, visited, Stack);
 
