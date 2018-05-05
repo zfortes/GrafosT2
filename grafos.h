@@ -13,18 +13,19 @@
 
 using namespace std;
 
-class Vertice{
-public:
-    int id;
-    list<int> adjacentes;
-
-    void add_adjacente(int ad);
-    //Vertice(int id, int vertices);
-};
+// class Vertice{
+// public:
+//     int id;
+//     list<int> adjacentes;
+//
+//     void add_adjacente(int ad);
+//     //Vertice(int id, int vertices);
+// };
 
 class Grafo{
     int vertices; //numero de vertices do grafo
 public:
+    int *grau;
 
     list<int> *adjacencia;
     Grafo(int);

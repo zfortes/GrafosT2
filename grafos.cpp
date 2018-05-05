@@ -22,6 +22,7 @@ void Grafo::add_adjacente(int v,int ad){
 Grafo::Grafo(int vertices){
     this->vertices = vertices;
     adjacencia = new list<int>[vertices];
+    grau = new int[vertices];
 }
 
 // void Grafo::setVertice(int nVertices){

@@ -21,7 +21,7 @@ Grafo *Arquivo::lerGrafo(){
         string line;
         getline (file,line);
         grafo = new Grafo(stoi(line)); //envia o numero de vertices q o grafo tem
-        std::cout << stoi(line)  << '\n';
+        // std::cout << stoi(line)  << '\n';
         while (! file.eof() ){
             getline (file,line); // como foi aberto em modo texto(padrão)
             i = 0;

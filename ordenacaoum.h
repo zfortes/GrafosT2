@@ -7,16 +7,17 @@
 using namespace std;
 
 // Class to represent a graph
-class OrdenacaoUm:public Grafo{
+class OrdenacaoUm{
     int V;    // No. of vertices'
 
     // Pointer to an array containing adjacency listsList
     // list<int> *adj;
 
     // A function used by topologicalSort
+    Grafo *grafo;
     void topologicalSortUtil(int v, bool visited[], stack<int> &Stack);
 public:
-    // OrdenacaoUm(int v);   // Constructor
+     OrdenacaoUm(Grafo *);   // Constructor
 
      // function to add an edge to graph
     void addEdge(int v, int w);

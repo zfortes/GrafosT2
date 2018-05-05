@@ -4,16 +4,16 @@
 #include "ordenacaoum.h"
 using namespace std;
 
-// OrdenacaoUm::OrdenacaoUm(int V)
-// {
-//     this->V = V;
-//     adj = new list<int>[V];
-// }
-
-void OrdenacaoUm::addEdge(int v, int w)
+OrdenacaoUm::OrdenacaoUm(Grafo *grafo)
 {
-    adjacencia[v].push_back(w); // Add w to v’s list.
+    V = grafo->getVertices();
+    this->grafo = grafo;
 }
+
+// void OrdenacaoUm::addEdge(int v, int w)
+// {
+//     adjacencia[v].push_back(w); // Add w to v’s list.
+// }
 
 // A recursive function used by topologicalSort
 void OrdenacaoUm::topologicalSortUtil(int v, bool visited[],
@@ -24,7 +24,7 @@ void OrdenacaoUm::topologicalSortUtil(int v, bool visited[],
 
     // Recur for all the vertices adjacent to this vertex
     list<int>::iterator i;
-    for (i = adjacencia[v].begin(); i != adjacencia[v].end(); ++i)
+    for (i = grafo->adjacencia[v].begin(); i != grafo->adjacencia[v].end(); ++i)
         if (!visited[*i])
             topologicalSortUtil(*i, visited, Stack);
 

@@ -1,5 +1,7 @@
-#ifndef GRAFOST2_ORDENACAOUM_H
-#define GRAFOST2_ORDENACAOUM_H
+#ifndef GRAFOST2_ORDENACAODOIS_H
+#define GRAFOST2_ORDENACAODOIS_H
+
+
 #include<iostream>
 #include <list>
 #include <stack>
@@ -9,13 +11,13 @@ using namespace std;
 
 #define MAXN 100000
 
-int grau[MAXN] = {};
+// int grau[MAXN] = {};
 
 // Class to represent a graph
-class OrdenacaoDois:public Grafo{
+class OrdenacaoDois{
 	int n; // número de vértices
 public:
-	void ordena_topologicamente(int n, Grafo grafo[]);
+	void ordena_topologicamente(Grafo *grafo);
 	void imprime_ordenacao(int n);
 
 };
