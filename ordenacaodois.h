@@ -4,6 +4,7 @@
 
 #include<iostream>
 #include <list>
+#include <vector>
 #include <stack>
 #include "grafos.h"
 using namespace std;
@@ -15,6 +16,7 @@ using namespace std;
 
 // Class to represent a graph
 class OrdenacaoDois{
+	vector<int> lista;
 	int n; // número de vértices
 public:
 	void ordena_topologicamente(Grafo *grafo);
