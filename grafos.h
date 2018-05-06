@@ -10,17 +10,7 @@
 #include <algorithm>
 #include "grafos.h"
 
-
 using namespace std;
-
-// class Vertice{
-// public:
-//     int id;
-//     list<int> adjacentes;
-//
-//     void add_adjacente(int ad);
-//     //Vertice(int id, int vertices);
-// };
 
 class Grafo{
     int vertices; //numero de vertices do grafo
@@ -34,8 +24,6 @@ public:
         return vertices;
     }
     void add_adjacente(int, int);
-    // void setVertice(int);
-//	bool verifica_adjacente(int v1, int v2); //Verifica se v2 encontra-se na lista de adjacencia de v1
 };
 
 

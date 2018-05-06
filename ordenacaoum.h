@@ -10,9 +10,6 @@ using namespace std;
 class OrdenacaoUm{
     int V;    // No. of vertices'
 
-    // Pointer to an array containing adjacency listsList
-    // list<int> *adj;
-
     // A function used by topologicalSort
     Grafo *grafo;
     void topologicalSortUtil(int v, bool visited[], stack<int> &Stack);

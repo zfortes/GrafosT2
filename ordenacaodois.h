@@ -12,16 +12,12 @@ using namespace std;
 
 #define MAXN 100000
 
-// int grau[MAXN] = {};
-
 // Class to represent a graph
 class OrdenacaoDois{
 	vector<int> lista;
-	int n; // número de vértices
 public:
 	void ordena_topologicamente(Grafo *grafo);
 	void imprime_ordenacao(int n);
-
 };
 
 #endif

@@ -8,9 +8,7 @@
 #include <vector>
 using namespace std;
 
-//------------------------------
-// vector<int> lista; // dos vértices de grau zero
-//------------------------------
+// o procedimento a ser feito é semelhante a uma BFS
 
 void OrdenacaoDois::ordena_topologicamente(Grafo *grafo){
 
@@ -22,11 +20,8 @@ void OrdenacaoDois::ordena_topologicamente(Grafo *grafo){
 		}
 	}
 
-    // o procedimento a ser feito é semelhante a uma BFS
-
     int ini = 0;
     while(ini < (int)lista.size()){
-
         int atual = lista[ini];
 		std::cout << "Atual = " <<atual;
         ini++;
@@ -41,13 +36,16 @@ void OrdenacaoDois::ordena_topologicamente(Grafo *grafo){
 	std::cout << "tamanho lista = " <<lista.size()<<endl;
 }
 
+// agora, se na lista não houver N vértices,
+// sabemos que é impossível realizar o procedimento
 void OrdenacaoDois::imprime_ordenacao(int n){
-	// agora, se na lista não houver N vértices,
-	// sabemos que é impossível realizar o procedimento
 
-    if((int)lista.size() < n) printf("impossivel\n");
-    else{
-        for(int i = 0;i < (int)lista.size();i++) printf("%d ", lista[i]);
+    if((int)lista.size() < n){
+		printf("impossivel\n");
+    }else{
+        for(int i = 0;i < (int)lista.size();i++){
+			printf("%d ", lista[i]);
+		}
         printf("\n");
     }
 }

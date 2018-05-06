@@ -8,8 +8,6 @@
 
 using namespace std;
 
-
-
 Grafo *Arquivo::lerGrafo(){
     ifstream file ("top_datasets/top_small.txt");
 
@@ -20,10 +18,9 @@ Grafo *Arquivo::lerGrafo(){
     if (file.is_open()){
         string line;
         getline (file,line);
-        grafo = new Grafo(stoi(line)); //envia o numero de vertices q o grafo tem
-        // std::cout << stoi(line)  << '\n';
+        grafo = new Grafo(stoi(line));
         while (! file.eof() ){
-            getline (file,line); // como foi aberto em modo texto(padrão)
+            getline (file,line);
             i = 0;
             j=0;
             while (line[i]!=' '){
@@ -41,14 +38,12 @@ Grafo *Arquivo::lerGrafo(){
             }
             ae = stoi(aux);
             grafo->add_adjacente(ab, ae);
-
-
-             // cout << line << endl;
         }
         file.close();
     }
 
-     else cout << "Unable to open file";
+     else
+        cout << "O arquivo nao pode ser lido.";
 
      return grafo;
 }

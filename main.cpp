@@ -8,7 +8,6 @@
 
 using namespace std;
 
-
 int main(){
 	int vertices, i=0, j, arestas;
 

@@ -9,22 +9,13 @@
 
 using namespace std;
 
-
 void Grafo::add_adjacente(int v,int ad){
     adjacencia[v].push_back(ad);
     grau[ad]++;
 }
-//Vertice::Vertice(int id, int vertices){
-//    this->id = id;
-//    adjacentes = new list<int>[vertices];
-//}
 
 Grafo::Grafo(int vertices){
     this->vertices = vertices;
     adjacencia = new list<int>[vertices];
     grau = new int[vertices];
 }
-
-// void Grafo::setVertice(int nVertices){
-//     vert = new Vertice[nVertices];
-// }

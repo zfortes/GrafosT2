@@ -10,15 +10,7 @@ OrdenacaoUm::OrdenacaoUm(Grafo *grafo)
     this->grafo = grafo;
 }
 
-// void OrdenacaoUm::addEdge(int v, int w)
-// {
-//     adjacencia[v].push_back(w); // Add w to v’s list.
-// }
-
-// A recursive function used by topologicalSort
-void OrdenacaoUm::topologicalSortUtil(int v, bool visited[],
-                                stack<int> &Stack)
-{
+void OrdenacaoUm::topologicalSortUtil(int v, bool visited[], stack<int> &Stack){
     // Mark the current node as visited.
     visited[v] = true;
 
