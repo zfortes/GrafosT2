@@ -4,8 +4,7 @@
 #include "ordenacaoum.h"
 using namespace std;
 
-OrdenacaoUm::OrdenacaoUm(Grafo *grafo)
-{
+OrdenacaoUm::OrdenacaoUm(Grafo *grafo){
     V = grafo->getVertices();
     this->grafo = grafo;
 }
@@ -26,8 +25,7 @@ void OrdenacaoUm::topologicalSortUtil(int v, bool visited[], stack<int> &Stack){
 
 // The function to do Topological Sort. It uses recursive
 // topologicalSortUtil()
-void OrdenacaoUm::topologicalSort()
-{
+void OrdenacaoUm::topologicalSort(){
     stack<int> Stack;
 
     // Mark all the vertices as not visited
