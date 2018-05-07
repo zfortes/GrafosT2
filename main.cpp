@@ -10,19 +10,20 @@ using namespace std;
 
 int main(){
 	int vertices, i=0, j, arestas;
+	string texto="top_datasets/top_small.txt";
 
 	Arquivo *arquivo = new Arquivo();
-	Grafo *grafo = arquivo->lerGrafo();
+	Grafo *grafo = arquivo->lerGrafo(texto);
 	// OrdenacaoUm *ordenacaoum = new OrdenacaoUm(grafo);
 	// ordenacaoum->topologicalSort();
 
-	for (i=0; i<grafo->getVertices(); i++){
+	/*for (i=0; i<grafo->getVertices(); i++){
 
 	   	std::cout << "Grafo: " << i;
 	   	// for (grafo->grau[i]){
 	   		std::cout << " = " << grafo->grau[i] << ","<<'\n';
 	   	// }
-	}
+	}*/
 
 	OrdenacaoDois *o2 = new OrdenacaoDois();
 	o2->ordena_topologicamente(grafo);
@@ -35,7 +36,23 @@ int main(){
 	// 		std::cout << " " << n << ","<<'\n';
 	// 	}
 	// }
+	getchar();
+	texto="top_datasets/top_med.txt";
+	grafo = arquivo->lerGrafo(texto);
+	o2->ordena_topologicamente(grafo);
+	o2->imprime_ordenacao(grafo->getVertices());
 
+	getchar();
+	texto="top_datasets/top_large.txt";
+	grafo = arquivo->lerGrafo(texto);
+	o2->ordena_topologicamente(grafo);
+	o2->imprime_ordenacao(grafo->getVertices());
+
+	getchar();
+	texto="top_datasets/top_huge.txt";
+	grafo = arquivo->lerGrafo(texto);
+	o2->ordena_topologicamente(grafo);
+	o2->imprime_ordenacao(grafo->getVertices());
 
 	return 0;
 }

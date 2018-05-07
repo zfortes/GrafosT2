@@ -15,7 +15,7 @@ void OrdenacaoDois::ordena_topologicamente(Grafo *grafo){
 	int n = grafo->getVertices();
     for(int i = 0;i < n;i++){
 		if(grafo->grau[i] == 0){
-		std::cout << "incluiu o = " << i << '\n';
+		//std::cout << "incluiu o = " << i << '\n';
 			lista.push_back(i);
 		}
 	}
@@ -23,9 +23,9 @@ void OrdenacaoDois::ordena_topologicamente(Grafo *grafo){
     int ini = 0;
     while(ini < (int)lista.size()){
         int atual = lista[ini];
-		std::cout << "Atual = " <<atual;
+		//std::cout << "Atual = " <<atual;
         ini++;
-		std::cout << "   size = " << grafo->adjacencia[atual].size()<<'\n';
+		//std::cout << "   size = " << grafo->adjacencia[atual].size()<<'\n';
 
 		for(int i : grafo->adjacencia[atual]){
             grafo->grau[i]--;
@@ -33,7 +33,7 @@ void OrdenacaoDois::ordena_topologicamente(Grafo *grafo){
 				lista.push_back(i); // se o grau se tornar zero, acrescenta-se a lista
         }
     }
-	std::cout << "tamanho lista = " <<lista.size()<<endl;
+	//std::cout << "tamanho lista = " <<lista.size()<<endl;
 }
 
 // agora, se na lista não houver N vértices,

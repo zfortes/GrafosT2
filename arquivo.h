@@ -7,7 +7,7 @@ using namespace std;
 
 class Arquivo{
 public:
-    Grafo *lerGrafo();
+    Grafo *lerGrafo(string texto);
 };
 
 #endif

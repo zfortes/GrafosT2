@@ -8,8 +8,10 @@
 
 using namespace std;
 
-Grafo *Arquivo::lerGrafo(){
-    ifstream file ("top_datasets/top_small.txt");
+
+
+Grafo *Arquivo::lerGrafo(string texto){
+    ifstream file (texto);
 
     int i, j, ab, ae;
     string aux, sae;
