@@ -15,7 +15,7 @@ int main(){
 	clock_t c2, c1; /* variáveis que contam ciclos do processador */
 	double tempo;
 	int vertices, i=0, j, arestas;
-        std::vector<double> x, y;
+        std::vector<double> x, y;//Vetores que serao usados para montar o grafico
 	string texto="top_datasets/top_small.txt";
 
 	Arquivo *arquivo = new Arquivo();
@@ -149,7 +149,7 @@ int main(){
 
 	getchar();
 
- try{
+ try{//Parte Grafica
         Gnuplot g1("lines");
         g1.set_xlabel("tempo em milisegundos");
         g1.set_ylabel("log(Vertices)");
@@ -163,7 +163,7 @@ int main(){
         y.push_back((double)log(10000));
         y.push_back((double)log(100000));
         
-
+//Parte que monta e mostra na tela o grafico
         cout << endl << endl << "Fim do Programa" << endl;
         g1.set_grid();
         g1.set_style("points").plot_xy(x,y,"user-defined points 2d");
