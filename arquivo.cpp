@@ -49,3 +49,50 @@ Grafo *Arquivo::lerGrafo(string texto){
 
      return grafo;
 }
+
+void Arquivo::gravaOrdenacaoDois(vector<int> lista, int t) {
+    string arq;
+
+    if (t == 1){
+        arq = "out/ordenacaodois/top_small.txt";
+    }else{
+        if (t == 2){
+            arq = "out/ordenacaodois/top_med.txt";
+        }else{
+            if (t == 3){
+                arq = "out/ordenacaodois/top_large.txt";
+            }else
+                arq = "out/ordenacaodois/top_huge.txt";
+        }
+    }
+
+    ofstream file;
+    file.open(arq);
+
+    for (int i : lista){
+        file<<i<<endl;
+    }
+}
+
+void Arquivo::gravaOrdenacaoUm(list<int> lista, int t) {
+    string arq;
+    if (t == 1){
+        arq = "out/ordenacaoum/top_small.txt";
+    }else{
+        if (t == 2){
+            arq = "out/ordenacaoum/top_med.txt";
+        }else{
+            if (t == 3){
+                arq = "out/ordenacaoum/top_large.txt";
+            }else
+                arq = "out/ordenacaoum/top_huge.txt";
+        }
+    }
+
+    ofstream file;
+    file.open(arq);
+
+    for (int i : lista){
+        file<<i<<endl;
+    }
+}

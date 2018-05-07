@@ -18,6 +18,9 @@ class OrdenacaoDois{
 public:
 	void ordena_topologicamente(Grafo *grafo);
 	void imprime_ordenacao(int n);
+	std::vector<int> getLista(){
+		return lista;
+	}
 };
 
 #endif
