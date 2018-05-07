@@ -72,6 +72,7 @@ void Arquivo::gravaOrdenacaoDois(vector<int> lista, int t) {
     for (int i : lista){
         file<<i<<endl;
     }
+    file.close();
 }
 
 void Arquivo::gravaOrdenacaoUm(list<int> lista, int t) {
@@ -95,4 +96,6 @@ void Arquivo::gravaOrdenacaoUm(list<int> lista, int t) {
     for (int i : lista){
         file<<i<<endl;
     }
+
+    file.close();
 }
