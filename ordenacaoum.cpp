@@ -9,7 +9,7 @@ OrdenacaoUm::OrdenacaoUm(Grafo *grafo){
     this->grafo = grafo;
 }
 
-void OrdenacaoUm::topologicalSortUtil(int v, bool visited[], stack<int> &Stack){
+void OrdenacaoUm::topologicalSortUtil(int v, bool visited[]){
     // Mark the current node as visited.
     visited[v] = true;
 
@@ -17,16 +17,22 @@ void OrdenacaoUm::topologicalSortUtil(int v, bool visited[], stack<int> &Stack){
     list<int>::iterator i;
     for (i = grafo->adjacencia[v].begin(); i != grafo->adjacencia[v].end(); ++i)
         if (!visited[*i])
-            topologicalSortUtil(*i, visited, Stack);
+            topologicalSortUtil(*i, visited);
 
     // Push current vertex to stack which stores result
-    Stack.push(v);
+    lista.push_front(v);
+}
+
+void OrdenacaoUm::imprime_ordenacao(){
+    for (int i : lista){
+        std::cout << i<<" ";
+    }
+    std::cout << '\n';
 }
 
 // The function to do Topological Sort. It uses recursive
 // topologicalSortUtil()
 void OrdenacaoUm::topologicalSort(){
-    stack<int> Stack;
 
     // Mark all the vertices as not visited
     bool *visited = new bool[V];
@@ -37,12 +43,12 @@ void OrdenacaoUm::topologicalSort(){
     // Sort starting from all vertices one by one
     for (int i = 0; i < V; i++)
       if (visited[i] == false)
-        topologicalSortUtil(i, visited, Stack);
+        topologicalSortUtil(i, visited);
 
     // Print contents of stack
-    while (Stack.empty() == false)
-    {
-        cout << Stack.top() << " ";
-        Stack.pop();
-    }
+    // while (Stack.empty() == false)
+    // {
+    //     cout << Stack.top() << " ";
+    //     Stack.pop();
+    // }
 }

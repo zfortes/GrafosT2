@@ -9,10 +9,10 @@ using namespace std;
 // Class to represent a graph
 class OrdenacaoUm{
     int V;    // No. of vertices'
-
+    list<int> lista;
     // A function used by topologicalSort
     Grafo *grafo;
-    void topologicalSortUtil(int v, bool visited[], stack<int> &Stack);
+    void topologicalSortUtil(int v, bool visited[]);
 public:
      OrdenacaoUm(Grafo *);   // Constructor
 
@@ -21,6 +21,11 @@ public:
 
     // prints a Topological Sort of the complete graph
     void topologicalSort();
+
+    void imprime_ordenacao();
+    list<int> getLista(){
+        return lista;
+    }
 };
 
 #endif

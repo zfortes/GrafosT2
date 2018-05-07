@@ -14,8 +14,9 @@ int main(){
 
 	Arquivo *arquivo = new Arquivo();
 	Grafo *grafo = arquivo->lerGrafo(texto);
-	// OrdenacaoUm *ordenacaoum = new OrdenacaoUm(grafo);
-	// ordenacaoum->topologicalSort();
+	OrdenacaoUm *ordenacaoum = new OrdenacaoUm(grafo);
+	ordenacaoum->topologicalSort();
+	ordenacaoum->imprime_ordenacao();
 
 	/*for (i=0; i<grafo->getVertices(); i++){
 
@@ -25,34 +26,34 @@ int main(){
 	   	// }
 	}*/
 
-	OrdenacaoDois *o2 = new OrdenacaoDois();
-	o2->ordena_topologicamente(grafo);
-	o2->imprime_ordenacao(grafo->getVertices());
-
-	// for (i=0; i<grafo->getVertices(); i++){
-	// 	// grafo->vert[i].add_adjacente(ae);
-	// 	std::cout << "Grafo: " << i <<'\n';
-	// 	for (int n : grafo->adjacencia[i]){
-	// 		std::cout << " " << n << ","<<'\n';
-	// 	}
-	// }
-	getchar();
-	texto="top_datasets/top_med.txt";
-	grafo = arquivo->lerGrafo(texto);
-	o2->ordena_topologicamente(grafo);
-	o2->imprime_ordenacao(grafo->getVertices());
-
-	getchar();
-	texto="top_datasets/top_large.txt";
-	grafo = arquivo->lerGrafo(texto);
-	o2->ordena_topologicamente(grafo);
-	o2->imprime_ordenacao(grafo->getVertices());
-
-	getchar();
-	texto="top_datasets/top_huge.txt";
-	grafo = arquivo->lerGrafo(texto);
-	o2->ordena_topologicamente(grafo);
-	o2->imprime_ordenacao(grafo->getVertices());
+	// OrdenacaoDois *o2 = new OrdenacaoDois();
+	// o2->ordena_topologicamente(grafo);
+	// o2->imprime_ordenacao(grafo->getVertices());
+	//
+	// // for (i=0; i<grafo->getVertices(); i++){
+	// // 	// grafo->vert[i].add_adjacente(ae);
+	// // 	std::cout << "Grafo: " << i <<'\n';
+	// // 	for (int n : grafo->adjacencia[i]){
+	// // 		std::cout << " " << n << ","<<'\n';
+	// // 	}
+	// // }
+	// getchar();
+	// texto="top_datasets/top_med.txt";
+	// grafo = arquivo->lerGrafo(texto);
+	// o2->ordena_topologicamente(grafo);
+	// o2->imprime_ordenacao(grafo->getVertices());
+	//
+	// getchar();
+	// texto="top_datasets/top_large.txt";
+	// grafo = arquivo->lerGrafo(texto);
+	// o2->ordena_topologicamente(grafo);
+	// o2->imprime_ordenacao(grafo->getVertices());
+	//
+	// getchar();
+	// texto="top_datasets/top_huge.txt";
+	// grafo = arquivo->lerGrafo(texto);
+	// o2->ordena_topologicamente(grafo);
+	// o2->imprime_ordenacao(grafo->getVertices());
 
 	return 0;
 }
