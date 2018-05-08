@@ -10,7 +10,7 @@ Algoritmos de ordenacao topologicas utilizados:
         Creditos geeksforgeeks : https://www.geeksforgeeks.org/topological-sorting/
 
     O algoritmo presente na classe OrdenacaoDois foi baseado no algoritmo de Khan e no algoritmo presente no sitio Noic.
-        Creditos noic : http://noic.com.br
+        Creditos noic  http://noic.com.br
 
 Codigo:
     Os comentarios do codigo estao contidos nos .cpp junto a implementacao dos metodos.
