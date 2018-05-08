@@ -6,21 +6,15 @@
 #include "grafos.h"
 using namespace std;
 
-// Class to represent a graph
 class OrdenacaoUm{
-    int V;    // No. of vertices'
-    list<int> lista;
-    // A function used by topologicalSort
+    int V;    //Numero de vertices
+    list<int> lista; //Lista com a ordenacao
     Grafo *grafo;
-    void topologicalSortUtil(int v, bool visited[]);
+    void ordenacaoDfsBased(int v, bool visited[]);
 public:
-     OrdenacaoUm(Grafo *);   // Constructor
+     OrdenacaoUm(Grafo *);
 
-     // function to add an edge to graph
-    void addEdge(int v, int w);
-
-    // prints a Topological Sort of the complete graph
-    void topologicalSort();
+    void ordena();
 
     void imprime_ordenacao();
     list<int> getLista(){

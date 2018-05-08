@@ -9,11 +9,14 @@
 
 using namespace std;
 
+// Adiciona uma adjacencia no vertice c do
+// grafo e incrementa o grau do mesmo.
 void Grafo::add_adjacente(int v,int ad){
     adjacencia[v].push_back(ad);
     grau[ad]++;
 }
 
+// Cria e aloca a memoria de um novo grafo.
 Grafo::Grafo(int vertices){
     this->vertices = vertices;
     adjacencia = new list<int>[vertices];

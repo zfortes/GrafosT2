@@ -4,25 +4,30 @@
 #include "ordenacaoum.h"
 using namespace std;
 
+//Construtor que inicializa a classe salvando o grafo na mesma.
 OrdenacaoUm::OrdenacaoUm(Grafo *grafo){
     V = grafo->getVertices();
     this->grafo = grafo;
 }
 
-void OrdenacaoUm::topologicalSortUtil(int v, bool visited[]){
-    // Mark the current node as visited.
+// Funcao recursiva que visita todo  o grafico e vai marcando
+// quais as vertices que ja foram visitadas.
+// Apos visitar todos as vertices do qual o vertice atual
+// tem adjacencia, ele insere esse vertice em uma lista;
+void OrdenacaoUm::ordenacaoDfsBased(int v, bool visited[]){
     visited[v] = true;
 
-    // Recur for all the vertices adjacent to this vertex
     list<int>::iterator i;
-    for (i = grafo->adjacencia[v].begin(); i != grafo->adjacencia[v].end(); ++i)
-        if (!visited[*i])
-            topologicalSortUtil(*i, visited);
+    for (i = grafo->adjacencia[v].begin(); i != grafo->adjacencia[v].end(); ++i){
+        if (!visited[*i]){
+            ordenacaoDfsBased(*i, visited);
+        }
+    }
 
-    // Push current vertex to stack which stores result
     lista.push_front(v);
 }
 
+// Funcao que imprime a ordenacao contida na lista
 void OrdenacaoUm::imprime_ordenacao(){
     for (int i : lista){
         std::cout << i<<" ";
@@ -30,25 +35,19 @@ void OrdenacaoUm::imprime_ordenacao(){
     std::cout << '\n';
 }
 
-// The function to do Topological Sort. It uses recursive
-// topologicalSortUtil()
-void OrdenacaoUm::topologicalSort(){
+// Funcao que define, inicializa as
+// variaveis e chama a funcao recursiva ordenacaoDfsBased()
+void OrdenacaoUm::ordena(){
 
-    // Mark all the vertices as not visited
     bool *visited = new bool[V];
-    for (int i = 0; i < V; i++)
+    for (int i = 0; i < V; i++){
         visited[i] = false;
+    }
 
-    // Call the recursive helper function to store Topological
-    // Sort starting from all vertices one by one
-    for (int i = 0; i < V; i++)
-      if (visited[i] == false)
-        topologicalSortUtil(i, visited);
+    for (int i = 0; i < V; i++){
+        if (visited[i] == false){
+            ordenacaoDfsBased(i, visited);
+        }
+    }
 
-    // Print contents of stack
-    // while (Stack.empty() == false)
-    // {
-    //     cout << Stack.top() << " ";
-    //     Stack.pop();
-    // }
 }

@@ -9,7 +9,8 @@
 using namespace std;
 
 
-
+// Abre o arquivo cujo o nome é definido pela string
+// texto e em seguida cria o grafo com as adjacencias e vertices.
 Grafo *Arquivo::lerGrafo(string texto){
     ifstream file (texto);
 
@@ -50,6 +51,10 @@ Grafo *Arquivo::lerGrafo(string texto){
      return grafo;
 }
 
+
+// Grava a ordenacao presente em uma lista em um arquivo de texto
+// para que assim o usuario possa ter uma melhor visualizacao.
+// Ela simplesmente abre o arquivo e insere cada elemento da lista em uma linha dele.
 void Arquivo::gravaOrdenacaoDois(vector<int> lista, int t) {
     string arq;
 
@@ -75,6 +80,9 @@ void Arquivo::gravaOrdenacaoDois(vector<int> lista, int t) {
     file.close();
 }
 
+// Grava a ordenacao presente em uma lista em um arquivo de texto
+// para que assim o usuario possa ter uma melhor visualizacao.
+// Ela simplesmente abre o arquivo e insere cada elemento da lista em uma linha dele.
 void Arquivo::gravaOrdenacaoUm(list<int> lista, int t) {
     string arq;
     if (t == 1){

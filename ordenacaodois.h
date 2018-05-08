@@ -9,10 +9,6 @@
 #include "grafos.h"
 using namespace std;
 
-
-#define MAXN 100000
-
-// Class to represent a graph
 class OrdenacaoDois{
 	vector<int> lista;
 public:

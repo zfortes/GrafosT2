@@ -10,16 +10,16 @@ using namespace std;
 
 int main(){
 	int vertices, i=0, j, arestas;
-	string texto="top_datasets/top_huge.txt";
+	string texto="top_datasets/top_small.txt";
 
 	Arquivo *arquivo = new Arquivo();
 	Grafo *grafo = arquivo->lerGrafo(texto);
 
 
-	// OrdenacaoUm *ordenacaoum = new OrdenacaoUm(grafo);
-	// ordenacaoum->topologicalSort();
-	// ordenacaoum->imprime_ordenacao();
-	// arquivo->gravaOrdenacaoUm(ordenacaoum->getLista(), 4);
+	OrdenacaoUm *ordenacaoum = new OrdenacaoUm(grafo);
+	ordenacaoum->ordena();
+	ordenacaoum->imprime_ordenacao();
+	arquivo->gravaOrdenacaoUm(ordenacaoum->getLista(), 1);
 
 	/*for (i=0; i<grafo->getVertices(); i++){
 
@@ -32,7 +32,7 @@ int main(){
 	OrdenacaoDois *o2 = new OrdenacaoDois();
 	o2->ordena_topologicamente(grafo);
 	o2->imprime_ordenacao(grafo->getVertices());
-	arquivo->gravaOrdenacaoDois(o2->getLista(), 4);
+	arquivo->gravaOrdenacaoDois(o2->getLista(), 1);
 	// // for (i=0; i<grafo->getVertices(); i++){
 	// // 	// grafo->vert[i].add_adjacente(ae);
 	// // 	std::cout << "Grafo: " << i <<'\n';
