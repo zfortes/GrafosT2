@@ -8,7 +8,6 @@ Compilacao:
 Algoritmos de ordenacao topologicas utilizados:
     O algoritmo presente na classe OrdenaUm é baseado no algoritmo DFS e no algoritmo presente no sitio GeeksforGeeks, porem adaptado para uma ordenacao topologica.
         Creditos geeksforgeeks : https://www.geeksforgeeks.org/topological-sorting/
-
     O algoritmo presente na classe OrdenacaoDois foi baseado no algoritmo de Khan e no algoritmo presente no sitio Noic.
         Creditos noic  http://noic.com.br
 
