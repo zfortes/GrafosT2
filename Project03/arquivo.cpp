@@ -1,6 +1,8 @@
 #include <iostream>
 #include <list>
 #include <algorithm>
+#include "grafos.h"
+#include "arquivo.h"
 #include <fstream>
 #include <string>
 
@@ -9,22 +11,75 @@ using namespace std;
 
 // Abre o arquivo cujo o nome é definido pela string
 // texto e em seguida cria o grafo com as adjacencias e vertices.
-Grafo *Arquivo::lerGrafo(string texto){
-    ifstream file (texto);
+Grafo *Arquivo::lerGrafo(){
+    ifstream file ("entradaProj3TAG.txt");
 
-    int i, j, ab, ae;
-    string aux, sae;
-    Grafo *grafo=NULL;
+	int i, j, ab=0, ae=0;
+	string aux, sae;
+	VerticeP *Vprof = new VerticeP();
+	VerticeE *Vescola = new VerticeE();
+	Grafo *grafo=NULL;
 
-    if (file.is_open()){
-        string line;
-        getline (file,line);
-        grafo = new Grafo(stoi(line));
-        while (! file.eof() ){
-            getline (file,line);
-            i = 0;
-            j=0;
-            while (line[i]!=' '){
+	if (file.is_open()){
+	        string line;
+	        getline (file,line);
+	        grafo = new Grafo(100, 50);
+	        while (! file.eof() ){
+	        	getline (file,line);
+	        	i = 0;
+	        	j=1;
+			//(P6, 2): (E10, E5, E6, E27, E13)
+			if(line[j]=='P'){
+				j++;
+				while(line[j]!=','){
+					aux[i]=line[j];
+        	        		i++;
+        	        		j++;
+        	    		}
+				Vprof->id = stoi(aux);
+				j=j+2;
+				aux[0] = line[j];
+				Vprof->habilitacoes = stoi(aux);
+				j=j+2;
+				while(line[j]!=')'){
+					if(line[j]=='E'){
+						i=0;
+						j++;
+						while((line[j]!=',') && (line[j]!=')')){
+							aux[i]=line[j];
+							i++;
+							j++;
+						}
+						Vprof->preferencia.push_back(stoi(aux));
+					}
+					if(line[j]!=')')
+						j++;
+				}
+				grafo->professores[ab].push_back(Vprof);
+				ab++;
+			}//(E36):(2):(1)
+			else if(line[j]=='E'){
+				j++;
+				while(line[j]!=')'){
+					aux[i]=line[j];
+					i++;
+					j++;
+				}
+				Vescola->id = stoi(aux);
+				while(line[j]!='(')
+					j++;
+				j++;
+				aux[0]=line[j];
+				Vescola->preferencia = stoi(aux);
+				while(line[j]!='(')
+					j++;
+				j++;
+				aux[0]=line[j];
+				Vescola->vagas = stoi(aux);
+				grafo->escolas[ae].push_back(Vescola);
+				ae++;
+			}
+/*            while (line[i]!=' '){
                 aux[j]=line[i];
                 i++;
                 j++;
@@ -38,7 +93,7 @@ Grafo *Arquivo::lerGrafo(string texto){
                 j++;
             }
             ae = stoi(aux);
-            grafo->add_adjacente(ab, ae);
+            grafo->add_adjacente(ab, ae);*/
         }
         file.close();
     }
@@ -49,59 +104,3 @@ Grafo *Arquivo::lerGrafo(string texto){
      return grafo;
 }
 
-
-// Grava a ordenacao presente em uma lista em um arquivo de texto
-// para que assim o usuario possa ter uma melhor visualizacao.
-// Ela simplesmente abre o arquivo e insere cada elemento da lista em uma linha dele.
-void Arquivo::gravaOrdenacaoDois(vector<int> lista, int t) {
-    string arq;
-
-    if (t == 1){
-        arq = "out/ordenacaodois/top_small.txt";
-    }else{
-        if (t == 2){
-            arq = "out/ordenacaodois/top_med.txt";
-        }else{
-            if (t == 3){
-                arq = "out/ordenacaodois/top_large.txt";
-            }else
-                arq = "out/ordenacaodois/top_huge.txt";
-        }
-    }
-
-    ofstream file;
-    file.open(arq);
-
-    for (int i : lista){
-        file<<i<<endl;
-    }
-    file.close();
-}
-
-// Grava a ordenacao presente em uma lista em um arquivo de texto
-// para que assim o usuario possa ter uma melhor visualizacao.
-// Ela simplesmente abre o arquivo e insere cada elemento da lista em uma linha dele.
-void Arquivo::gravaOrdenacaoUm(list<int> lista, int t) {
-    string arq;
-    if (t == 1){
-        arq = "out/ordenacaoum/top_small.txt";
-    }else{
-        if (t == 2){
-            arq = "out/ordenacaoum/top_med.txt";
-        }else{
-            if (t == 3){
-                arq = "out/ordenacaoum/top_large.txt";
-            }else
-                arq = "out/ordenacaoum/top_huge.txt";
-        }
-    }
-
-    ofstream file;
-    file.open(arq);
-
-    for (int i : lista){
-        file<<i<<endl;
-    }
-
-    file.close();
-}
