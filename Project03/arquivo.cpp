@@ -16,8 +16,8 @@ Grafo *Arquivo::lerGrafo(){
 
 	int i, j, ab=0, ae=0;
 	string aux, sae;
-	VerticeP *Vprof = new VerticeP();
-	VerticeE *Vescola = new VerticeE();
+	VerticeP Vprof;
+	VerticeE Vescola;
 	Grafo *grafo=NULL;
 
 	if (file.is_open()){
@@ -36,10 +36,10 @@ Grafo *Arquivo::lerGrafo(){
         	        		i++;
         	        		j++;
         	    		}
-				Vprof->id = stoi(aux);
+				Vprof.id = stoi(aux);
 				j=j+2;
 				aux[0] = line[j];
-				Vprof->habilitacoes = stoi(aux);
+				Vprof.habilitacoes = stoi(aux);
 				j=j+2;
 				while(line[j]!=')'){
 					if(line[j]=='E'){
@@ -50,7 +50,7 @@ Grafo *Arquivo::lerGrafo(){
 							i++;
 							j++;
 						}
-						Vprof->preferencia.push_back(stoi(aux));
+						Vprof.preferencia.push_back(stoi(aux));
 					}
 					if(line[j]!=')')
 						j++;
@@ -65,17 +65,17 @@ Grafo *Arquivo::lerGrafo(){
 					i++;
 					j++;
 				}
-				Vescola->id = stoi(aux);
+				Vescola.id = stoi(aux);
 				while(line[j]!='(')
 					j++;
 				j++;
 				aux[0]=line[j];
-				Vescola->preferencia = stoi(aux);
+				Vescola.preferencia = stoi(aux);
 				while(line[j]!='(')
 					j++;
 				j++;
 				aux[0]=line[j];
-				Vescola->vagas = stoi(aux);
+				Vescola.vagas = stoi(aux);
 				grafo->escolas[ae].push_back(Vescola);
 				ae++;
 			}
