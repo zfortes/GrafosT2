@@ -101,7 +101,6 @@
 (P98, 2): (E3, E47, E4, E48, E1)
 (P99, 2): (E2, E47, E4, E49, E1)
 (P100, 3): (E1, E47, E4, E50, E10)
-
 //escolas e preferencias em termos de habilitacoes 
 // formato (codigo escola):(habilitacoes pretendidas):(vagas)
 (E1):(1):(2)
@@ -154,4 +153,3 @@
 (E48):(2):(2)
 (E49):(2):(1)
 (E50):(2):(1)
-
