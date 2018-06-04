@@ -10,23 +10,27 @@
 using namespace std;
 
 int main(){
-	int id, hab, professor;
-	list<VerticeP>::iterator prof;
-	list<VerticeE>::iterator esc;
-	list<int>::iterator pref;
+	int id, hab, professor, emparelhados=0;
 	Arquivo *arquivo = new Arquivo();
 	Grafo *grafo = arquivo->lerGrafo();
 	Emparelhamento *p = new Emparelhamento();
-	// cout<<"Entou"<<endl;
+
 	vector<VerticeE> escola = p->emparelha(grafo);
-	// cout<<"Saiu"<<endl;
+	//Loop que imprime todas as escolas da lista de escolas do grafo e os respectivos professores das mesmas.
 	for (VerticeE i : escola){
 		cout<<"Escola "<< i.id  <<endl;
-		cout<<"Prof 1 " <<i.professor1+1<<endl;
-		cout<<"Prof 2 " <<i.professor2+1<<endl;
+		if(i.professor1+1>0){
+			emparelhados++;
+			cout<<"Prof 1 " <<i.professor1+1<<endl;
+			if(i.vagas>1){
+				cout<<"Prof 2 " <<i.professor2+1<<endl;
+				emparelhados++;
+			}
+		}
+		else
+			cout <<"Escola sem professores" << endl;
+		cout << endl;
 	}
-
-
 
 	return 0;
 }

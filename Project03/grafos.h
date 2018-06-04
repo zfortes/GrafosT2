@@ -34,16 +34,10 @@ class Grafo{
     int verticesP; //numero de vertices de professores
     int verticesE; //numero de vertices de escolas
 public:
-//    int *grau;
-
     list<VerticeP> *professores;
     list<VerticeE> *escolas;
     Grafo(int, int);
 
-/*    int getVertices(){
-        return vertices;
-    }*/
-//    void add_adjacente(int, int);
 };
 
 

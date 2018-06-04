@@ -9,8 +9,7 @@
 using namespace std;
 
 
-// Abre o arquivo cujo o nome é definido pela string
-// texto e em seguida cria o grafo com as adjacencias e vertices.
+// Abre o arquivo txt e monta com seus dados um grafo com dois tipos diferentes de vertices
 Grafo *Arquivo::lerGrafo(){
     ifstream file ("entradaProj3TAG.txt");
 
@@ -30,7 +29,7 @@ Grafo *Arquivo::lerGrafo(){
 	        while (file.eof()==false){
 	        	getline (file,line);
 	        	j=1;
-			//(P6, 2): (E10, E5, E6, E27, E13)
+			//Teste para montar um vertice de professor
 			if(line[j]=='P'){
 				j++;
 				while(line[j]!=','){
@@ -58,7 +57,7 @@ Grafo *Arquivo::lerGrafo(){
 				}
 				grafo->professores->push_back(Vprof);
 				Vprof.preferencia.clear();
-			}//(E36):(2):(1)
+			}//Teste para montar um vertice de escola
 			else if(line[j]=='E'){
 				j++;
 				while(line[j]!=')'){

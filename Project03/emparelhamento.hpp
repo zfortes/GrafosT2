@@ -5,6 +5,7 @@
 #include <list>
 #include <algorithm>
 #include "grafos.h"
+#include <vector>
 
 using namespace std;
 
