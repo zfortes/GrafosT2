@@ -25,7 +25,7 @@ vector<VerticeE> Emparelhamento::emparelha(Grafo* grafo){
      vector<VerticeP> professor;
      copy(grafo->professores->begin(),grafo->professores->end(),back_inserter(professor));
 
-     bool proposta[100][50];
+     bool proposta[100][50]; //vetor com todas as propostas ja feitas
 
 
 	//Loop que preenche a matriz de propostas inicialmente.
@@ -49,6 +49,7 @@ vector<VerticeE> Emparelhamento::emparelha(Grafo* grafo){
      while (professorLivre(professor, proposta)){
           int pLivre,  eLivre;
 
+          //Econtra um professor que ainda nao esteja emparelhado com nenhuma escola
           for (int i = 0; i< professor.size(); i++){
                if (professor[i].escola == -1){
                     for (int j : professor[i].preferencia){
@@ -60,6 +61,8 @@ vector<VerticeE> Emparelhamento::emparelha(Grafo* grafo){
                }
      	}
 
+          //Encontra uma escola da lista de preferencia do
+          //professor que ainda nao tenha sido proposta por ele
           for (int i : professor[pLivre].preferencia){
                if (proposta[pLivre][i-1] == false){
                     proposta[pLivre][eLivre] = true;
@@ -69,7 +72,9 @@ vector<VerticeE> Emparelhamento::emparelha(Grafo* grafo){
           }
 
 
+          //Verifica se a escola ja contratou ou nao dois professores
           if ((escola[eLivre].professor1 == -1) || (escola[eLivre].vagas == 2) && (escola[eLivre].professor2 == -1)){
+               //Verifica se o professor satisfaz o numero de habilitacoes da escola
                if (escola[eLivre].preferencia <= professor[pLivre].habilitacoes){
                     if(escola[eLivre].professor1 == -1){
                          escola[eLivre].professor1 = pLivre;
@@ -81,7 +86,8 @@ vector<VerticeE> Emparelhamento::emparelha(Grafo* grafo){
                }
           }
           else{
-
+               //se a escola ja estiver associada ao numero maximo
+               // maximo de professores verifica se o professor candidato é melhor q o associado
                int encontrou = 0;
                if (escola[eLivre].professor1>-1){
 
