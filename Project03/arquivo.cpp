@@ -18,7 +18,10 @@ Grafo *Arquivo::lerGrafo(){
 	string aux;
 	string sae;
 	VerticeP Vprof;
+     Vprof.escola=-1;
 	VerticeE Vescola;
+     Vescola.professor2=-1;
+     Vescola.professor1=-1;
 	Grafo *grafo=NULL;
 	if (file.is_open()){
 	        string line;
@@ -87,4 +90,3 @@ Grafo *Arquivo::lerGrafo(){
 
      return grafo;
 }
-

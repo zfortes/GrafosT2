@@ -26,7 +26,8 @@ public:
 	int id;
 	int vagas;//Quantidade de professores que aceita
 	int preferencia;//Numero de habilitacoes minimo que a escola aceita de um professor
-	int professor;//indice do professor a que esta escola se liga(aresta)
+	int professor1;//indice do professor a que esta escola se liga(aresta)
+	int professor2;
 };
 
 class Grafo{
