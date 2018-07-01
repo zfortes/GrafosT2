@@ -8,8 +8,8 @@ int main() {
      /* code */
 
      Arquivo *arquivo = new Arquivo();
-     vector<Grafo> grafo = arquivo->lerGrafo();
-
+     Grafo *grafo = arquivo->lerGrafo();
+/*
      for (Grafo g : grafo){
           cout<<g.tempo;
           for (long double l: g.v)
@@ -22,6 +22,6 @@ int main() {
      string car;
      cout<<"END ->";
      cin>>car;
-
+*/
      return 0;
 }

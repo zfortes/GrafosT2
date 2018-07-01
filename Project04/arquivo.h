@@ -9,7 +9,7 @@ using namespace std;
 
 class Arquivo{
 public:
-    vector<Grafo> lerGrafo();
+    Grafo *lerGrafo();
 };
 
 #endif

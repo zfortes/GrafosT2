@@ -5,13 +5,22 @@
 
 using namespace std;
 
+class VerticeL{
+public:
+	int id;
+	std::vector<long double> transacao;
+};
+
+class VerticeC{
+public:
+	std::vector<long double> transacao;
+
+};
+
 class Grafo{
 public:
-    int tempo;
-    vector<long double> v;
-    float amount;
-    int fraude;
-
+    vector<VerticeL> linha;
+    vector<VerticeC> coluna;
 };
 
 #endif

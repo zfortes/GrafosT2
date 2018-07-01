@@ -13,30 +13,30 @@ using namespace std;
 
 // Abre o arquivo cujo o nome é creditcard.csv
 // e em seguida cria o grafo com os vertices.
-vector<Grafo>  Arquivo::lerGrafo(){
+Grafo  *Arquivo::lerGrafo(){
     ifstream file ("creditcard.csv");
 
-    int i, j, k;
+    int i, j, k, parar=0;
 
     string aux;
 
 
-    long double tempo;
+    
+    Grafo *grafo;
+    grafo= new Grafo();
     // long double v;
 
-    vector<Grafo> v;
     if (file.is_open()){
 
 
         string line;
         // getline (file,line);
         getline (file,line);
-        Grafo *grafo;
-        while (!file.eof() ){
-             grafo= new Grafo();
-             i=1;
-             line.erase();
-
+        VerticeL no_linha;
+        VerticeC no_coluna;
+        while (!file.eof() || parar<=10000){
+            i=1;
+            line.erase();
             j=0;
             aux.erase();
             while (line[i]!=','){
@@ -46,7 +46,7 @@ vector<Grafo>  Arquivo::lerGrafo(){
                 j++;
             }
 
-            grafo->tempo=stoi(aux);
+            no_linha.id=stoi(aux);
             i++;
             j=0;
             k=0;
@@ -60,40 +60,24 @@ vector<Grafo>  Arquivo::lerGrafo(){
 
                  }
 
-                grafo->v.push_back(stold(aux));
+                no_linha.transacao.push_back(stold(aux));
+                no_coluna.transacao.push_back(stold(aux));
                 j=0;
                 i++;
             }
 
-
-            aux.erase();
-            j=0;
-            while (line[i]!=','){
-                aux.push_back(line[i]);
-                i++;
-                j++;
-
-            }
-
-
-           grafo->amount=stof(aux);
-
-           i+=3;
-           aux.erase();
-           aux.push_back(line[i]);
-           grafo->fraude=stoi(aux);
-
-            v.push_back(*grafo);
-
+            grafo->linha.push_back(no_linha);
+            grafo->coluna.push_back(no_coluna);
             getline (file,line);
+            parar++;
        }
 
        file.close();
 
     }
-     else{
+    else{
         cout << "O arquivo nao pode ser lido.";
-   }
+    }
 
-     return v;
+     return grafo;
 }
